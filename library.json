@@ -20,9 +20,7 @@
   },
   "homepage": "https://github.com/mathieucarbou/StreamDebugger",
   "frameworks": [
-    "arduino",
-    "energia",
-    "wiringpi"
+    "arduino"
   ],
   "platforms": "*",
   "headers": "StreamDebugger.h",
