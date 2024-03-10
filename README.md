@@ -15,6 +15,7 @@ This fork is based on [https://github.com/vshymanskyy/StreamDebugger](https://gi
 **Changes:**
 
 - Added `directAccessNonBlocking` (no while loop)
+- Added `setDataStream()` and `setDumpStream()`
 - Added CI
 
 ## Usage:
