@@ -26,4 +26,5 @@ void setup() {
 void loop() {
   Serial1Dbg1.directAccessNonBlocking();
   Serial1Dbg2.directAccessNonBlocking();
+  delay(0);
 }
