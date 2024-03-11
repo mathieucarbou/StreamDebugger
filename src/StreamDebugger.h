@@ -31,11 +31,31 @@ class StreamDebugger : public Stream {
 
     virtual ~StreamDebugger() {}
 
+    // Print
+
     virtual size_t write(uint8_t ch) {
       if (_dump)
         _dump->write(ch);
       return _data ? _data->write(ch) : 0;
     }
+    virtual size_t write(const uint8_t* buffer, size_t size) {
+      if (_dump && size)
+        _dump->write(buffer, size);
+      return _data ? _data->write(buffer, size) : 0;
+    }
+    virtual int availableForWrite() {
+      return _data ? _data->availableForWrite() : 0;
+    }
+    virtual void flush() {
+      if (_data)
+        _data->flush();
+      if (_dump)
+        _dump->flush();
+    }
+
+    // Stream
+
+    virtual int available() { return _data ? _data->available() : 0; }
     virtual int read() {
       if (!_data)
         return -1;
@@ -45,12 +65,25 @@ class StreamDebugger : public Stream {
       }
       return ch;
     }
-    virtual int available() { return _data ? _data->available() : 0; }
     virtual int peek() { return _data ? _data->peek() : -1; }
-    virtual void flush() {
-      if (_data)
-        _data->flush();
+    virtual size_t readBytes(char* buffer, size_t length) {
+      if (!_data)
+        return 0;
+      size_t count = _data->readBytes(buffer, length);
+      if (_dump && count)
+        _dump->write(buffer, count);
+      return count;
     }
+    virtual String readString() {
+      if (!_data)
+        return emptyString;
+      String str = _data->readString();
+      if (_dump && str.length())
+        _dump->print(str);
+      return str;
+    }
+
+    // StreamDebugger
 
     void directAccess() {
       int r;
