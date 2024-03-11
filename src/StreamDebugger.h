@@ -14,6 +14,10 @@ class StreamDebugger : public Stream {
   public:
     StreamDebugger() {}
 
+    StreamDebugger(Stream& data) {
+      setDataStream(&data);
+    }
+
     StreamDebugger(Stream& data, Stream& dump) {
       setDataStream(&data);
       setDumpStream(&dump);
