@@ -20,7 +20,7 @@ class StreamDebugger : public Stream {
   public:
     StreamDebugger() {}
 
-    StreamDebugger(Stream& data) {
+    explicit StreamDebugger(Stream& data) {
       setDataStream(&data);
     }
 
