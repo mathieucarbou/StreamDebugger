@@ -10,6 +10,12 @@
 
 #include <Arduino.h>
 
+#define STREAM_DEBUGGER_VERSION "2.0.1"
+#define STREAM_DEBUGGER_VERSION_MAJOR 2
+#define STREAM_DEBUGGER_VERSION_MINOR 0
+#define STREAM_DEBUGGER_VERSION_REVISION 1
+#define STREAM_DEBUGGER_FORK_mathieucarbou
+
 class StreamDebugger : public Stream {
   public:
     StreamDebugger() {}
