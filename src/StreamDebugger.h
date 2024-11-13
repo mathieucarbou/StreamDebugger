@@ -8,7 +8,8 @@
 
 #pragma once
 
-#include <Arduino.h>
+#include <Stream.h>
+#include <functional>
 
 #define STREAM_DEBUGGER_VERSION "2.1.0"
 #define STREAM_DEBUGGER_VERSION_MAJOR 2
