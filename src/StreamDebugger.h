@@ -127,7 +127,6 @@ class StreamDebugger : public Stream {
           _dump->write(r);
         if (_dump && _dump->available() && (r = _dump->read()) != -1 && _data)
           _data->write(r);
-        delay(0);
       }
     }
 
