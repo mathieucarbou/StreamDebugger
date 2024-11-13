@@ -11,10 +11,10 @@
 #include <Stream.h>
 #include <functional>
 
-#define STREAM_DEBUGGER_VERSION "2.1.0"
+#define STREAM_DEBUGGER_VERSION "2.1.1"
 #define STREAM_DEBUGGER_VERSION_MAJOR 2
 #define STREAM_DEBUGGER_VERSION_MINOR 1
-#define STREAM_DEBUGGER_VERSION_REVISION 0
+#define STREAM_DEBUGGER_VERSION_REVISION 1
 #define STREAM_DEBUGGER_FORK_mathieucarbou
 
 typedef std::function<void(const uint8_t* buffer, size_t size)> StreamDebuggerCallback;
